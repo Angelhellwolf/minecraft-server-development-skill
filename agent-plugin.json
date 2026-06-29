@@ -1,0 +1,44 @@
+{
+  "schema": "https://agents.md/plugin.schema.json",
+  "name": "minecraft-server-development",
+  "displayName": "Minecraft Server Development",
+  "version": "0.2.0",
+  "description": "Cross-agent Minecraft Java server and proxy development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+  "license": "MIT",
+  "targets": {
+    "minecraft": {
+      "edition": "java",
+      "versions": ["1.8.x+", "26.x", "26.2"],
+      "platforms": ["spigot", "paper", "folia", "velocity", "bungeecord"]
+    }
+  },
+  "agents": {
+    "codex": {
+      "entry": "AGENTS.md",
+      "skill": "SKILL.md",
+      "metadata": "agents/openai.yaml"
+    },
+    "claude": {
+      "entry": "CLAUDE.md",
+      "imports": ["AGENTS.md"]
+    },
+    "gemini": {
+      "entry": "GEMINI.md",
+      "imports": ["AGENTS.md"]
+    },
+    "generic": {
+      "entry": "AGENTS.md"
+    }
+  },
+  "references": [
+    "references/platforms.md",
+    "references/folia-threading.md",
+    "references/protocol-and-nms.md",
+    "references/architecture.md",
+    "references/build-and-test.md"
+  ],
+  "scripts": {
+    "createProject": "scripts/create_minecraft_project.py",
+    "installRules": "scripts/install_agent_rules.py"
+  }
+}

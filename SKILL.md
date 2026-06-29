@@ -5,6 +5,10 @@ description: Design, implement, review, and debug Minecraft Java server and prox
 
 # Minecraft Server Development
 
+## Agent Compatibility
+
+This package is both a Codex skill and a cross-agent instruction pack. Use `AGENTS.md` as the canonical shared rule set. `CLAUDE.md` and `GEMINI.md` import it for Claude Code and Gemini CLI compatibility.
+
 ## Core Workflow
 
 1. Identify the runtime target before editing code:
@@ -45,6 +49,12 @@ python scripts/create_minecraft_project.py --name ExamplePlugin --package dev.ex
 ```
 
 Use the generated project as a starting point, then adapt versions, metadata, dependencies, and CI to the actual target matrix. The script intentionally keeps generated code minimal so project-specific design stays explicit.
+
+To install this package's shared rules into an existing project for Codex, Claude Code, Gemini CLI, or all three:
+
+```bash
+python scripts/install_agent_rules.py --target /path/to/plugin --agent all --references
+```
 
 ## Implementation Rules
 
