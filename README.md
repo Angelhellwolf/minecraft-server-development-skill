@@ -1,42 +1,42 @@
 # Minecraft Server Development
 
-Cross-agent development rules and reusable tooling for Minecraft Java server projects.
+面向 Minecraft Java 服务端开发的跨 Agent 规范包和复用工具。
 
-This repository is not a Minecraft plugin jar. It is an AI agent instruction package for designing, implementing, reviewing, and debugging plugins and proxy projects across Spigot, Paper, Folia, Velocity, and BungeeCord from legacy 1.8.x through the 26.x/26.2-era line.
+这个仓库不是 Minecraft 插件 jar，而是一套给 AI 编程 Agent 使用的开发规范。它用于辅助设计、实现、审查和调试 Spigot、Paper、Folia、Velocity、BungeeCord 插件与代理项目，覆盖从旧版 1.8.x 到当前 26.x/26.2 时代的服务端开发。
 
-## What It Supports
+## 支持内容
 
-- Codex through `AGENTS.md` and `SKILL.md`
-- Claude Code through `CLAUDE.md`
-- Gemini CLI through `GEMINI.md`
-- Generic AI coding agents through `AGENTS.md`
-- Bukkit, Spigot, Paper, Folia, Velocity, and BungeeCord project design
-- Protocol, NMS, packet, plugin messaging, scheduler, and architecture work
-- Cross-version planning from 1.8.x legacy servers to current 26.x targets
+- Codex：通过 `AGENTS.md` 和 `SKILL.md` 使用
+- Claude Code：通过 `CLAUDE.md` 使用
+- Gemini CLI：通过 `GEMINI.md` 使用
+- 通用 AI 编程 Agent：通过 `AGENTS.md` 使用
+- Bukkit、Spigot、Paper、Folia、Velocity、BungeeCord 项目设计
+- 协议、NMS、数据包、插件消息、调度器、底层架构开发
+- 从 1.8.x 旧版服务端到 26.x 目标版本的跨版本兼容规划
 
-## Repository Layout
+## 仓库结构
 
 ```text
 .
-|-- AGENTS.md                  # Canonical shared rules for Codex and generic agents
-|-- CLAUDE.md                  # Claude Code entry point
-|-- GEMINI.md                  # Gemini CLI entry point
-|-- SKILL.md                   # Codex skill entry point
-|-- agent-plugin.json          # Cross-agent plugin manifest
-|-- agents/openai.yaml         # Codex UI metadata
-|-- references/                # Detailed platform, Folia, protocol, architecture, build docs
-`-- scripts/                   # Project generator and rule installer
+|-- AGENTS.md                  # Codex 和通用 Agent 的共享主规范
+|-- CLAUDE.md                  # Claude Code 入口
+|-- GEMINI.md                  # Gemini CLI 入口
+|-- SKILL.md                   # Codex skill 入口
+|-- agent-plugin.json          # 跨 Agent 插件清单
+|-- agents/openai.yaml         # Codex UI 元数据
+|-- references/                # 平台、Folia、协议、架构、构建测试参考资料
+`-- scripts/                   # 项目生成器和规则安装脚本
 ```
 
-## Use In An Existing Project
+## 安装到现有项目
 
-Install all agent entry files into another Minecraft project:
+把所有 Agent 入口文件安装到另一个 Minecraft 插件项目：
 
 ```bash
 python scripts/install_agent_rules.py --target /path/to/plugin --agent all --references --manifest
 ```
 
-Install only one agent entry:
+只安装某一个 Agent 的入口：
 
 ```bash
 python scripts/install_agent_rules.py --target /path/to/plugin --agent codex --references
@@ -44,11 +44,11 @@ python scripts/install_agent_rules.py --target /path/to/plugin --agent claude --
 python scripts/install_agent_rules.py --target /path/to/plugin --agent gemini --references
 ```
 
-Use `--force` to overwrite existing instruction files.
+如果目标项目已经有同名文件，可以加 `--force` 覆盖。
 
-## Generate A Starter Project
+## 生成插件项目骨架
 
-Create a minimal multi-module Gradle project:
+创建一个最小化的多模块 Gradle 项目：
 
 ```bash
 python scripts/create_minecraft_project.py \
@@ -58,41 +58,41 @@ python scripts/create_minecraft_project.py \
   --output ./generated
 ```
 
-The generated project contains:
+生成的项目包含：
 
-- `common` for platform-free domain logic
-- `bukkit` for Spigot/Paper/Folia-facing code
-- `velocity` for Velocity proxy code
-- `bungee` for BungeeCord proxy code
+- `common`：不依赖平台 API 的业务逻辑
+- `bukkit`：面向 Spigot、Paper、Folia 的服务端代码
+- `velocity`：Velocity 代理端代码
+- `bungee`：BungeeCord 代理端代码
 
-Adjust dependency versions, Java toolchains, plugin metadata, Folia support, and tests for your real target matrix before release.
+发布前请根据真实目标版本调整依赖版本、Java toolchain、插件元数据、Folia 支持状态和测试矩阵。
 
-## Core Rules
+## 核心规范
 
-- Keep business logic out of platform adapters.
-- Treat Folia as a different threading model, not as normal Paper.
-- Do not touch Bukkit world, entity, chunk, or player state from arbitrary async code.
-- Keep protocol, NMS, reflection, and Netty code behind narrow adapters.
-- Prefer stable platform APIs before raw packets or reflection.
-- Validate against the oldest and newest supported server versions.
-- Do not claim Folia or 26.x/26.2 compatibility without testing or checking current docs/data.
+- 业务逻辑不要和平台适配器混在一起。
+- Folia 是不同的线程模型，不是普通 Paper 的简单替代品。
+- 不要从任意异步线程访问 Bukkit 的世界、实体、区块或玩家状态。
+- 协议、NMS、反射、Netty 代码必须隔离在窄接口适配器后面。
+- 优先使用稳定平台 API，再考虑原始数据包或反射。
+- 至少验证最旧和最新的目标服务端版本。
+- 没有测试或查证当前资料前，不要声明 Folia 或 26.x/26.2 兼容。
 
-## References
+## 参考资料
 
-- `references/platforms.md`: Spigot, Paper, Folia, Velocity, and BungeeCord differences
-- `references/folia-threading.md`: Folia scheduler and regionized threading rules
-- `references/protocol-and-nms.md`: packet, NMS, reflection, and protocol safety
-- `references/architecture.md`: multi-module and server-network design
-- `references/build-and-test.md`: Gradle, Maven, Java, shading, CI, and test matrix
+- `references/platforms.md`：Spigot、Paper、Folia、Velocity、BungeeCord 差异
+- `references/folia-threading.md`：Folia 调度器和区域化线程规则
+- `references/protocol-and-nms.md`：数据包、NMS、反射和协议安全
+- `references/architecture.md`：多模块项目和服务器网络架构设计
+- `references/build-and-test.md`：Gradle、Maven、Java、shade、CI 和测试矩阵
 
-## Codex Skill Usage
+## Codex Skill 用法
 
-The repository is also a valid Codex skill. Copy or clone this folder into your Codex skills directory, then invoke:
+这个仓库也是一个有效的 Codex skill。把本仓库复制或克隆到 Codex skills 目录后，可以这样调用：
 
 ```text
 Use $minecraft-server-development to design a cross-platform Minecraft plugin.
 ```
 
-## License
+## 许可证
 
-MIT License.
+MIT License。
