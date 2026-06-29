@@ -1,0 +1,2 @@
+description = "Apply Minecraft server development rules"
+prompt = "Use the Minecraft Server Development rules from AGENTS.md. Identify target platform/version matrix first, load the relevant references, then implement or review with Folia, protocol/NMS, proxy, architecture, and build compatibility in mind."

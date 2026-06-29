@@ -1,0 +1,9 @@
+{
+  "name": "minecraft-server-development",
+  "version": "0.3.0",
+  "description": "Minecraft Java server development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+  "author": {
+    "name": "Angelhellwolf",
+    "url": "https://github.com/Angelhellwolf"
+  }
+}

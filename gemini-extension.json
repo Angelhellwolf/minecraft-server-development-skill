@@ -1,0 +1,6 @@
+{
+  "name": "minecraft-server-development",
+  "version": "0.3.0",
+  "description": "Minecraft Java server and proxy development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+  "contextFileName": "AGENTS.md"
+}

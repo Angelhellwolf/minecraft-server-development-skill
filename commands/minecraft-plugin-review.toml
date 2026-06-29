@@ -1,0 +1,2 @@
+description = "Review a Minecraft plugin for production risks"
+prompt = "Review the current Minecraft plugin/proxy changes for production risks. Findings first with file/line references. Prioritize Folia thread safety, async Bukkit API use, NMS/protocol compatibility, plugin messaging validation, lifecycle cleanup, build/shading problems, and missing version tests."

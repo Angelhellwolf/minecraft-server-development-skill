@@ -1,0 +1,12 @@
+name: minecraft-server-development
+version: 0.3.0
+description: Minecraft Java server and proxy development rules for AI coding agents.
+author: Angelhellwolf
+provides_commands:
+  - minecraft-server-development
+  - minecraft-plugin-review
+  - minecraft-folia-audit
+provides_skills:
+  - minecraft-server-development
+  - minecraft-plugin-review
+  - minecraft-folia-audit

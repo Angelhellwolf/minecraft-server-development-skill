@@ -1,0 +1,2 @@
+description = "Audit Folia compatibility"
+prompt = "Audit this Bukkit/Paper plugin for Folia compatibility. Search scheduler, async, world, entity, chunk, player, teleport, inventory, scoreboard, and shared mutable state usage. Do not approve folia-supported: true unless every access has correct entity/region/global/async ownership."

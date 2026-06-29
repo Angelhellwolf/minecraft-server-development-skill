@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "minecraft-server-development",
+  "description": "Minecraft Java server and proxy development rules for AI coding agents.",
+  "owner": {
+    "name": "Angelhellwolf",
+    "url": "https://github.com/Angelhellwolf"
+  },
+  "plugins": [
+    {
+      "name": "minecraft-server-development",
+      "description": "Rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+      "source": "./",
+      "category": "developer-tools"
+    }
+  ]
+}

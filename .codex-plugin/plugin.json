@@ -1,0 +1,29 @@
+{
+  "name": "minecraft-server-development",
+  "version": "0.3.0",
+  "description": "Minecraft Java server development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+  "author": {
+    "name": "Angelhellwolf",
+    "url": "https://github.com/Angelhellwolf"
+  },
+  "homepage": "https://github.com/Angelhellwolf/minecraft-server-development-skill",
+  "repository": "https://github.com/Angelhellwolf/minecraft-server-development-skill",
+  "license": "MIT",
+  "keywords": ["minecraft", "spigot", "paper", "folia", "velocity", "bungeecord", "protocol", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Minecraft Server Development",
+    "shortDescription": "Minecraft server and proxy development rules",
+    "longDescription": "Build, review, and debug Spigot, Paper, Folia, Velocity, and BungeeCord projects with protocol, NMS, scheduler, architecture, and compatibility guidance.",
+    "developerName": "Angelhellwolf",
+    "category": "Developer Tools",
+    "capabilities": ["Instructions", "Skills", "Project scaffolding"],
+    "websiteURL": "https://github.com/Angelhellwolf/minecraft-server-development-skill",
+    "defaultPrompt": [
+      "Use Minecraft Server Development rules for this plugin.",
+      "Review this Minecraft plugin for Folia and protocol safety.",
+      "Generate a cross-platform Minecraft plugin skeleton."
+    ],
+    "brandColor": "#3B8526"
+  }
+}

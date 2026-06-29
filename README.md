@@ -23,10 +23,28 @@
 |-- GEMINI.md                  # Gemini CLI 入口
 |-- SKILL.md                   # Codex skill 入口
 |-- agent-plugin.json          # 跨 Agent 插件清单
+|-- gemini-extension.json      # Gemini/Antigravity 扩展元数据
+|-- plugin.yaml                # 通用插件宿主元数据
+|-- package.json               # npm/OpenCode 风格包元数据
+|-- .codex-plugin/             # Codex 插件清单
+|-- .claude-plugin/            # Claude Code 插件清单
 |-- agents/openai.yaml         # Codex UI 元数据
+|-- commands/                  # slash command 风格命令提示
+|-- skills/                    # skill-capable 宿主可加载的技能
 |-- references/                # 平台、Folia、协议、架构、构建测试参考资料
-`-- scripts/                   # 项目生成器和规则安装脚本
+`-- scripts/                   # 项目生成器、安装和校验脚本
 ```
+
+
+## 参考 Ponytail 的设计
+
+这个仓库参考了 `DietrichGebert/ponytail` 的多宿主插件设计：
+
+- 根目录保留 `AGENTS.md` 作为所有 Agent 的共享核心规则。
+- 为不同宿主提供轻量入口：`.codex-plugin/`、`.claude-plugin/`、`gemini-extension.json`、`plugin.yaml`。
+- 把可触发能力拆成 `skills/` 和 `commands/`，而不是只靠 README 描述。
+- 用 `agent-plugin.json` 描述支持的 Agent、入口文件、参考资料、脚本和目标平台。
+- 不引入不需要的 hooks、MCP、benchmark 或品牌资源，保持这个包专注于 Minecraft 开发规范。
 
 ## 安装到现有项目
 

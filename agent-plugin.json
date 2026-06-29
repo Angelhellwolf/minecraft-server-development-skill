@@ -2,7 +2,7 @@
   "schema": "https://agents.md/plugin.schema.json",
   "name": "minecraft-server-development",
   "displayName": "Minecraft Server Development",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Cross-agent Minecraft Java server and proxy development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
   "license": "MIT",
   "targets": {
@@ -16,15 +16,18 @@
     "codex": {
       "entry": "AGENTS.md",
       "skill": "SKILL.md",
-      "metadata": "agents/openai.yaml"
+      "metadata": "agents/openai.yaml",
+      "plugin": ".codex-plugin/plugin.json"
     },
     "claude": {
       "entry": "CLAUDE.md",
-      "imports": ["AGENTS.md"]
+      "imports": ["AGENTS.md"],
+      "plugin": ".claude-plugin/plugin.json"
     },
     "gemini": {
       "entry": "GEMINI.md",
-      "imports": ["AGENTS.md"]
+      "imports": ["AGENTS.md"],
+      "extension": "gemini-extension.json"
     },
     "generic": {
       "entry": "AGENTS.md"
@@ -40,5 +43,15 @@
   "scripts": {
     "createProject": "scripts/create_minecraft_project.py",
     "installRules": "scripts/install_agent_rules.py"
-  }
+  },
+  "commands": [
+    "commands/minecraft-server-development.toml",
+    "commands/minecraft-plugin-review.toml",
+    "commands/minecraft-folia-audit.toml"
+  ],
+  "skills": [
+    "skills/minecraft-server-development/SKILL.md",
+    "skills/minecraft-plugin-review/SKILL.md",
+    "skills/minecraft-folia-audit/SKILL.md"
+  ]
 }

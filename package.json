@@ -1,0 +1,40 @@
+{
+  "name": "@angelhellwolf/minecraft-server-development",
+  "version": "0.3.0",
+  "description": "Cross-agent Minecraft Java server and proxy development rules for Spigot, Paper, Folia, Velocity, BungeeCord, protocol, NMS, and architecture work.",
+  "keywords": ["minecraft", "spigot", "paper", "folia", "velocity", "bungeecord", "codex", "claude", "gemini", "skills"],
+  "license": "MIT",
+  "author": {
+    "name": "Angelhellwolf",
+    "url": "https://github.com/Angelhellwolf"
+  },
+  "homepage": "https://github.com/Angelhellwolf/minecraft-server-development-skill",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angelhellwolf/minecraft-server-development-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Angelhellwolf/minecraft-server-development-skill/issues"
+  },
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "SKILL.md",
+    "agent-plugin.json",
+    "gemini-extension.json",
+    "plugin.yaml",
+    ".codex-plugin/",
+    ".claude-plugin/",
+    "agents/",
+    "commands/",
+    "references/",
+    "scripts/",
+    "skills/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "python scripts/validate_package.py"
+  }
+}
