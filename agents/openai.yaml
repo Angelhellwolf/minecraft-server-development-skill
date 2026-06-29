@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minecraft Server Development"
+  short_description: "Build Spigot, Folia, Velocity, and Bungee projects."
+  default_prompt: "Use $minecraft-server-development to design and implement a cross-platform Minecraft server plugin or proxy project."
